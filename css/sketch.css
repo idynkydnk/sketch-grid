@@ -1,0 +1,23 @@
+.gridForm{
+	width: 650px;
+	margin: 50px auto;
+}
+
+.floatedForm{
+	text-align: center;
+}
+
+.wrapper{
+	width: 650px;
+	height: 650px;
+	margin: 50px auto;
+}
+
+.grid{
+	background-color: black;
+	color: purple;
+	float: left;
+	border-width: 1px;
+	border-style: solid;
+	border-color: yellow;
+}
