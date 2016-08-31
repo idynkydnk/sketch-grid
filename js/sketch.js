@@ -40,15 +40,15 @@ function newGrid(numPerSide){
 	$(".grid").mouseover(function(){
 			
 		if (gridType === "default"){	
+
 			if ( $("#" + this.id).css("background-color") === "rgb(0, 0, 0)" ){
+
 				$("#" + this.id).css("background-color","red");
 			};
 		} else if (gridType === "rainbow"){
+
 			var randColor = makeRandomColor();
 			$("#" + this.id).css("background-color",randColor);
-
-
-
 
 		} else{     // grid type must be gradient here
 
@@ -66,15 +66,13 @@ function formResults (form) {		// this is called from the html when the form is 
 
 function lighten(color, luminosity) {
 
-	// validate hex string
-	color = new String(color).replace(/[^0-9a-f]/gi, '');
+	color = new String(color).replace(/[^0-9a-f]/gi, '');			// validate hex string
 	if (color.length < 6) {
 		color = color[0]+ color[0]+ color[1]+ color[1]+ color[2]+ color[2];
 	}
 	luminosity = luminosity || 0;
 
-	// convert to decimal and change luminosity
-	var newColor = "#", c, i, black = 0, white = 255;
+	var newColor = "#", c, i, black = 0, white = 255;			// convert to decimal and change luminosity
 	for (i = 0; i < 3; i++) {
 		c = parseInt(color.substr(i*2,2), 16);
 		c = Math.round(Math.min(Math.max(black, c + (luminosity * white)), white)).toString(16);
@@ -86,8 +84,7 @@ function lighten(color, luminosity) {
 function getBgColorHex(elem){		// gets hex code of an element
     var color = elem.css('background-color')
     var hex;
-    if(color.indexOf('#')>-1){
-        //for IE
+    if(color.indexOf('#')>-1){		        //for IE
         hex = color;
     } else {
         var rgb = color.match(/\d+/g);
@@ -103,55 +100,3 @@ function makeRandomColor(){
   }
   return '#'+c;
 }
-
-
-
-/*
-
-}else{
-				$("#" + this.id).css("background-color","black");
-
-alert( parseInt( $(".grid").css("border-left-width") ) * 2 );
-
-<input type="text" id="tbxEmail" name="Email" placeholder="Some Text"/>
-
-$('#tbxEmail').attr('placeholder','Some New Text');
-
-
-    var TestVar = form.userEntered.value;
-    alert ("You typed: " + TestVar);
-
-defaultSide = 7;
-	newGrid(defaultSide);
-
-	$("#buttonPress").click(function(){
-		$(".wrapper").empty();
-		var userNumPerSide = document.getElementById("formValue").value;
-		if (userNumPerSide > 50 || userNumPerSide < 1){
-			alert("Keep it between 1 and 50.");
-			newGrid(defaultSide);
-		}else{
-			newGrid(userNumPerSide);
-		}
-	});
-
-
-function newGrid(numPerSide){
-	for (i = 0; i < numPerSide * numPerSide; i++){
-		$(".wrapper").append("<div></div>").find("div:last").addClass("grid");
-		$("div:last").attr("id", "box" + i);
-	}
-
-	$(".grid").width($(".wrapper").width() / numPerSide - 2);
-	$(".grid").height($(".wrapper").height() / numPerSide - 2);
-
-	$(".grid").mouseover(function(){
-			
-			if ($("#" + this.id).css("background-color") === "rgb(0, 0, 0)"){
-				$("#" + this.id).css("background-color","green");
-			}else{
-				$("#" + this.id).css("background-color","black");
-			};
-	});
-}
-*/
