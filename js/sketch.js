@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	userRows = 40;	// default rows
+	userRows = 10;	// default rows
 	newGrid(userRows);
 	gridType = "default";
 
